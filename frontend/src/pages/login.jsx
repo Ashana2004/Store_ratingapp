@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import '../styles/login.css';
-import '../styles/card-hover.css';
-import '../styles/modal.css';
+
 import { showCenteredAlert } from '../utils/alert';
 import sideImage from '../assets/loginimg.jpg';
 

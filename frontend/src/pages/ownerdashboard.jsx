@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import TopBar from "../components/TopBar";
 import { IoLocation } from "react-icons/io5";
-import "../styles/ownerdashboard.css";
+
 
 export default function OwnerDashboard() {
   const [myStores, setMyStores] = useState([]);

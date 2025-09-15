@@ -2,8 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { IoLocation } from "react-icons/io5";
 import TopBar from "../components/TopBar";
 import { showCenteredAlert } from "../utils/alert";
-import "../styles/normaldashboard.css"
-import "../styles/changingText.css";  
+ 
 import TypingText from "../components/Typingtext";
 export default function NormalDashboard() {
   const [stores, setStores] = useState([]);

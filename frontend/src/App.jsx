@@ -5,7 +5,16 @@ import RoleSelection from "./pages/roleselelction";
 import NormalDashboard from "./pages/normaldashboard";
 import OwnerDashboard from "./pages/ownerdashboard";
 import AdminDashboard from "./pages/admindashboard";
-
+import "./styles/admindashboard.css";
+import "./styles/modal.css";
+import './styles/login.css';
+import './styles/card-hover.css';
+import './styles/modal.css';
+import "./styles/normaldashboard.css"
+import "./styles/changingText.css"; 
+import "./styles/ownerdashboard.css";
+import './styles/signup.css';
+import './styles/card-hover.css'; // <-- new import
 
 function App() {
   return (

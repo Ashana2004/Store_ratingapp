@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import '../styles/signup.css';
-import '../styles/card-hover.css'; // <-- new import
+
 import { Link } from "react-router-dom";
 
 export default function Signup() {

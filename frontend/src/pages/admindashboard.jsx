@@ -1,8 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { IoLocation } from "react-icons/io5";
 import TopBar from "../components/TopBar";
-import "../styles/admindashboard.css";
-import "../styles/modal.css";
+
 import { showCenteredAlert } from "../utils/alert";
 import { BsStars } from "react-icons/bs";
 
