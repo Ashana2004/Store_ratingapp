@@ -15,7 +15,6 @@ A modern web application for managing and collecting store ratings with separate
 ### For Store Owners
 - Manage store profiles
 - View ratings and feedback for their stores
-- Track store performance metrics
 - Responsive dashboard with rating 
 
 ### For Administrators
@@ -139,6 +138,7 @@ VITE_API_URL=http://localhost:5000
 - Secure password handling
 
 - Role-based authorization
+
 
 
 
