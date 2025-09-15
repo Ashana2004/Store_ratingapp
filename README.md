@@ -22,7 +22,8 @@ A modern web application for managing and collecting store ratings with separate
 - Comprehensive admin dashboard
 - Manage users, stores, and ratings
 - Monitor system activity
-- Generate reports and analytics
+ 
+
 
 ---
 
@@ -138,5 +139,6 @@ VITE_API_URL=http://localhost:5000
 - Secure password handling
 
 - Role-based authorization
+
 
 
