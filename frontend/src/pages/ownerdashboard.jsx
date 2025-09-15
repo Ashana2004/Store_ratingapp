@@ -20,7 +20,7 @@ export default function OwnerDashboard() {
     async function fetchMyStores() {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:5000/api/stores/owner/my-stores", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/stores/owner/my-stores`, {
           headers: { Authorization: "Bearer " + token }
         });
         const data = await res.json();
@@ -42,7 +42,7 @@ export default function OwnerDashboard() {
         setLoading(true);
         const token = localStorage.getItem("token");
         const res = await fetch(
-          `http://localhost:5000/api/stores/owner/${selectedStoreId}/ratings`,
+          `${import.meta.env.VITE_API_URL}/api/stores/owner/${selectedStoreId}/ratings`,
           {
             headers: { Authorization: "Bearer " + token }
           }

@@ -27,12 +27,12 @@ export default function NormalDashboard() {
       try {
         const token = localStorage.getItem("token");
 
-        const resStores = await fetch("http://localhost:5000/api/stores", {
+        const resStores = await fetch(`${import.meta.env.VITE_API_URL}/api/stores`, {
           headers: { "Authorization": "Bearer " + token },
         });
         const storesData = await resStores.json();
 
-        const resRatings = await fetch("http://localhost:5000/api/users/myratings", {
+        const resRatings = await fetch(`${import.meta.env.VITE_API_URL}/api/users/myratings`, {
           headers: { "Authorization": "Bearer " + token },
         });
         const ratingsData = await resRatings.json();
@@ -66,7 +66,7 @@ export default function NormalDashboard() {
         return;
       }
 
-      const res = await fetch(`http://localhost:5000/api/stores/${storeId}/rate`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/stores/${storeId}/rate`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

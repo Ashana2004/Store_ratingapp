@@ -23,7 +23,7 @@ export default function RoleSelection() {
       }
 
       // <-- This is where your fetch goes
-      const res = await fetch("http://localhost:5000/api/users/set-role", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/users/set-role`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

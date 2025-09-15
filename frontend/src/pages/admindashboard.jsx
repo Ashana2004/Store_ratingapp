@@ -57,7 +57,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     async function fetchSummary() {
       try {
-        const res = await fetch("http://localhost:5000/api/adminroutes/dashboard-summary", { headers: authHeaders() });
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/adminroutes/dashboard-summary`, { headers: authHeaders() });
         const data = await res.json();
         if (res.ok && data.data) setSummary(data.data);
       } catch (e) { console.error(e); }
@@ -69,7 +69,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     async function fetchStoreOwners() {
       try {
-        const res = await fetch("http://localhost:5000/api/adminroutes/admin-users", { headers: authHeaders() });
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/adminroutes/admin-users`, { headers: authHeaders() });
         const data = await res.json();
         if (res.ok) {
           const owners = data.adminUsers.filter(u => u.role === 'owner');
@@ -89,7 +89,7 @@ export default function AdminDashboard() {
       sortBy,
       order
     }).toString();
-    const res = await fetch(`http://localhost:5000/api/adminroutes/users?${params}`, { headers: authHeaders() });
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/adminroutes/users?${params}`, { headers: authHeaders() });
     const data = await res.json();
     if (res.ok) setUsers(data.users || []);
   }
@@ -102,7 +102,7 @@ export default function AdminDashboard() {
       sortBy,
       order
     }).toString();
-    const res = await fetch(`http://localhost:5000/api/adminroutes/admin-users?${params}`, { headers: authHeaders() });
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/adminroutes/admin-users?${params}`, { headers: authHeaders() });
     const data = await res.json();
     if (res.ok) setAdminUsers(data.adminUsers || []);
   }
@@ -115,7 +115,7 @@ export default function AdminDashboard() {
       sortBy,
       order
     }).toString();
-    const res = await fetch(`http://localhost:5000/api/adminroutes/stores?${params}`, { headers: authHeaders() });
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/adminroutes/stores?${params}`, { headers: authHeaders() });
     const data = await res.json();
     if (res.ok) setStores(data.stores || []);
   }
@@ -132,7 +132,7 @@ export default function AdminDashboard() {
     try {
       setLoading(true);
       const endpoint = isAdmin ? "add-admin-user" : "add-user";
-      const res = await fetch(`http://localhost:5000/api/adminroutes/${endpoint}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/adminroutes/${endpoint}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", ...authHeaders() },
         body: JSON.stringify(form)
@@ -145,7 +145,7 @@ export default function AdminDashboard() {
       setShowAddAdmin(false);
       if (isAdmin) loadAdminUsers(); else loadUsers();
       // refresh summary counts
-      const sRes = await fetch("http://localhost:5000/api/adminroutes/dashboard-summary", { headers: authHeaders() });
+      const sRes = await fetch(`${import.meta.env.VITE_API_URL}/api/adminroutes/dashboard-summary`, { headers: authHeaders() });
       const sData = await sRes.json();
       if (sRes.ok && sData.data) setSummary(sData.data);
     } catch (e) {
@@ -156,7 +156,7 @@ export default function AdminDashboard() {
   async function handleAddStore() {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/api/adminroutes/addStore", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/adminroutes/addStore`, {
         method: "POST",
         headers: { "Content-Type": "application/json", ...authHeaders() },
         body: JSON.stringify(storeForm)
@@ -168,7 +168,7 @@ export default function AdminDashboard() {
       setShowAddStore(false);
       if (activeTab === "stores") loadStores();
       // refresh summary counts
-      const sRes = await fetch("http://localhost:5000/api/adminroutes/dashboard-summary", { headers: authHeaders() });
+      const sRes = await fetch(`${import.meta.env.VITE_API_URL}/api/adminroutes/dashboard-summary`, { headers: authHeaders() });
       const sData = await sRes.json();
       if (sRes.ok && sData.data) setSummary(sData.data);
     } catch (e) {
@@ -179,7 +179,7 @@ export default function AdminDashboard() {
   async function handleCreateOwner() {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/api/adminroutes/add-store-owner", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/adminroutes/add-store-owner`, {
         method: "POST",
         headers: { "Content-Type": "application/json", ...authHeaders() },
         body: JSON.stringify(ownerForm)
@@ -190,14 +190,14 @@ export default function AdminDashboard() {
       resetForms();
       setShowCreateOwner(false);
       // Refresh store owners list
-      const ownersRes = await fetch("http://localhost:5000/api/adminroutes/admin-users", { headers: authHeaders() });
+      const ownersRes = await fetch(`${import.meta.env.VITE_API_URL}/api/adminroutes/admin-users`, { headers: authHeaders() });
       const ownersData = await ownersRes.json();
       if (ownersRes.ok) {
         const owners = ownersData.adminUsers.filter(u => u.role === 'owner');
         setStoreOwners(owners);
       }
       // refresh summary counts
-      const sRes = await fetch("http://localhost:5000/api/adminroutes/dashboard-summary", { headers: authHeaders() });
+      const sRes = await fetch(`${import.meta.env.VITE_API_URL}/api/adminroutes/dashboard-summary`, { headers: authHeaders() });
       const sData = await sRes.json();
       if (sRes.ok && sData.data) setSummary(sData.data);
     } catch (e) {
