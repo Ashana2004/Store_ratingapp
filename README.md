@@ -97,44 +97,45 @@ Create a .env file in the frontend directory:
 
 VITE_API_URL=http://localhost:5000
 ```
-📱 Usage
+# 📱 Usage
 
-Open your browser and navigate to http://localhost:5173
+- Open your browser and navigate to http://localhost:5173
 
-Register a new account or log in
+- Register a new account or log in
 
-Select your role (User, Store Owner, or Admin)
+- Select your role (User, Store Owner, or Admin)
 
-Navigate through the interface based on your role:
+- Navigate through the interface based on your role:
 
-Users can browse and rate stores
+- Users can browse and rate stores
 
-Store owners can manage their stores and view ratings
+- Store owners can manage their stores and view ratings
 
-Admins can access the admin dashboard
+- Admins can access the admin dashboard
 
-🎨 Features and UI Components
+# 🎨 Features and UI Components
 
-Modern, responsive design
+- Modern, responsive design
 
-Role-based access control
+- Role-based access control
 
-Interactive dashboards
+- Interactive dashboards
 
-Real-time updates
+- Real-time updates
 
-Animated transitions
+- Animated transitions
 
-Mobile-friendly interface
+- Mobile-friendly interface
 
-🔐 Security Features
+# 🔐 Security Features
 
-JWT-based authentication
+- JWT-based authentication
 
-Protected API routes
+- Protected API routes
 
-Input validation
+- Input validation
 
-Secure password handling
+- Secure password handling
 
-Role-based authorization
+- Role-based authorization
+
