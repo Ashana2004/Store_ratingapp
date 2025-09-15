@@ -12,10 +12,10 @@ import './styles/card-hover.css';
 import './styles/modal.css';
 import "./styles/normaldashboard.css"
 import "./styles/changingText.css"; 
-import "./styles/ownerdashboard.css";
+import "./styles/ownerDashboard.css";
 import './styles/signup.css';
 import './styles/card-hover.css'; // <-- new import
-import "./styles/topBar.css";
+import "./styles/topbar.css";
 import "./styles/modal.css";
 import "./styles/changingText.css";
 
