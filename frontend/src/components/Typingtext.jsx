@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../styles/changingText.css";
+
 
 export default function TypingText() {
   const words = ["Rate the revolution,", "Your voice,"];

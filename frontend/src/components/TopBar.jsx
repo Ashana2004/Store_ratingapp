@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/topBar.css";
-import "../styles/modal.css";
+
 import { showCenteredAlert } from "../utils/alert";
 
 export default function TopBar({ onSearch, showSearch = true, showChangePassword = true }) {
