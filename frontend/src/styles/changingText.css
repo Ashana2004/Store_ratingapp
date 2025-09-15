@@ -1,0 +1,24 @@
+.changing-text {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: auto;
+  padding-left: 500px;
+  align-items: center;
+}
+
+.changing-text span {
+  display: inline-block;
+  transition: opacity 0.5s ease;
+}
+
+.changing-text span.fade {
+  opacity: 0;
+}
+.typing-text{
+    padding-left: 90px;
+    font-size: 2.5rem;  /* Reduced from the default h1 size */
+    font-weight: 600;   /* Made slightly less bold */
+    color: #333;        /* Slightly softer color */
+    line-height: 1.4;   /* Better line height for readability */
+    margin: 0.5rem 0;   /* Adjusted margins */
+}

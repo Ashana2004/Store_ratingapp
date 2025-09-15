@@ -1,0 +1,177 @@
+/* card-hover.css
+   Controls the half-cover card that slides away on hover / focus-within.
+   Import this in both Login.jsx and Signup.jsx.
+*/
+
+.interactive-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0px; /* matches card corner radius */
+  width: 100%;
+}
+
+/* Keep the form above document background but below the cover */
+.interactive-card .login-form,
+.interactive-card .signup-form {
+  position: relative;
+  z-index: 1;
+}
+
+/* The sliding cover that initially covers ~55% of the right side */
+.card-cover {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 55%;
+  height: 110%;
+  background: linear-gradient(135deg, #c26363 0%, #fb8246 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.18);
+  color: #fff;
+  transform: translateX(0%);
+  transition: transform 560ms cubic-bezier(.2,.9,.2,1), 
+              box-shadow 300ms ease, 
+              opacity 300ms ease;
+  z-index: 6;
+  pointer-events: auto;
+  cursor: pointer;
+
+  /* make left side circular, right side straight */
+  border-top-left-radius: 70% 100%;
+  border-bottom-left-radius: 70% 100%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+
+/* Inner content of the cover (title + hint + small arrow) */
+.card-cover .cover-inner {
+  text-align: center;
+  user-select: none;
+}
+.card-cover .cover-inner .cover-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+.card-cover .cover-inner .cover-sub {
+  font-size: 0.9rem;
+  opacity: 0.95;
+  margin-bottom: 8px;
+}
+
+/* subtle arrow */
+.card-cover .cover-inner .cover-arrow {
+  font-size: 1.4rem;
+  transform: translateX(0);
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+/* Slide the cover fully out to the right on hover or focus-within
+   or if a UI class 'open' is added (for click toggle on mobile). */
+.interactive-card:hover .card-cover,
+.interactive-card:focus-within .card-cover,
+.interactive-card.open .card-cover {
+  transform: translateX(100%);
+  pointer-events: none;
+  box-shadow: -2px 0 12px rgba(0,0,0,0.06);
+}
+
+/* visual micro-interaction when hovering on the cover itself */
+.card-cover:hover .cover-arrow {
+  transform: translateX(8px);
+  opacity: 0.95;
+}
+
+/* If you want to dim the underlying form while covered, uncomment:
+.interactive-card::after {
+  content: "";
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.03);
+  z-index: 2;
+  pointer-events: none;
+}
+*/
+
+/* Accessibility: ensure that keyboard focus opens it (focus-within does this) */
+
+/* MOBILE: hover not available — reveal form by default on small widths */
+@media (max-width: 700px) {
+  .card-cover {
+    display: none; /* keep form reachable on mobile */
+  }
+}
+
+/* small tweak if you want the cover to peek from the left instead of right,
+   change `right:0` to `left:0` and transform accordingly. */
+/* Quarter-circle cover on the LEFT side */
+.quadrant-cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width:55%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff8a8a, #ffcd70);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-shadow: 10px 0 30px rgba(0,0,0,0.18);
+  color: #fff;
+  transform: translateX(0%);
+  transition: transform 560ms cubic-bezier(.2,.9,.2,1),
+              box-shadow 300ms ease,
+              opacity 300ms ease;
+  z-index: 6;
+  pointer-events: auto;
+  cursor: pointer;
+  clip-path: circle(140% at left center); /* curved look */
+}
+
+.quadrant-cover .cover-inner {
+  text-align: center;
+  user-select: none;
+}
+
+.quadrant-cover .cover-inner .cover-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.quadrant-cover .cover-inner .cover-sub {
+  font-size: 0.9rem;
+  opacity: 0.95;
+  margin-bottom: 8px;
+}
+
+.quadrant-cover .cover-inner .cover-arrow {
+  font-size: 1.7rem;
+  transform: translateX(0);
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+/* Make both covers slide away together on hover/focus/open */
+.interactive-card:hover .quadrant-cover,
+.interactive-card:focus-within .quadrant-cover,
+.interactive-card.open .quadrant-cover {
+  transform: translateX(-100%);
+  pointer-events: none;
+  box-shadow: 2px 0 12px rgba(0,0,0,0.06);
+}
+
+.quadrant-cover:hover .cover-arrow {
+  transform: translateX(-8px);
+  opacity: 0.95;
+}
+
+@media (max-width: 700px) {
+  .quadrant-cover {
+    display: none;
+  }
+}
