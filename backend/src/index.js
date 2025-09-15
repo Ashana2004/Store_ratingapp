@@ -3,7 +3,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 
 dotenv.config();
-
+const PORT=process.env.PORT
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -24,6 +24,6 @@ app.use("/api/storeownerroutes",storeownerroutes)
 const adminroutes = require("./routes/adminroutes");
 app.use("/api/adminroutes",adminroutes)
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
