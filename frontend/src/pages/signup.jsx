@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../styles/signup.css';
-import '../styles/card-hover.css';
-import '../styles/modal.css';
-import { showCenteredAlert } from '../utils/alert';
+import '../styles/card-hover.css'; // <-- new import
 import { Link } from "react-router-dom";
 
 export default function Signup() {
@@ -18,26 +16,26 @@ export default function Signup() {
   const validateForm = () => {
     const { username, email, password, address } = formData;
     if (username.length < 20 || username.length > 60) {
-      showCenteredAlert("Name must be between 20 and 60 characters");
+      alert("Name must be between 20 and 60 characters");
       return false;
     }
     if (address && address.length > 400) {
-      showCenteredAlert("Address must be at most 400 characters");
+      alert("Address must be at most 400 characters");
       return false;
     }
     if (password.length < 8 || password.length > 16) {
-      showCenteredAlert("Password must be 8-16 characters");
+      alert("Password must be 8-16 characters");
       return false;
     }
     const hasUpperCase = /[A-Z]/.test(password);
     const hasSpecialChar = /[^A-Za-z0-9]/.test(password);
     if (!hasUpperCase || !hasSpecialChar) {
-      showCenteredAlert("Password must include at least one uppercase letter and one special character");
+      alert("Password must include at least one uppercase letter and one special character");
       return false;
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      showCenteredAlert("Please enter a valid email address");
+      alert("Please enter a valid email address");
       return false;
     }
     return true;
@@ -56,14 +54,14 @@ export default function Signup() {
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
         const errMsg = data.msg || data.message || "Signup failed";
-        showCenteredAlert(errMsg);
+        alert(errMsg);
       } else {
-        showCenteredAlert(data.msg || data.message || "Signup successful");
+        alert(data.msg || data.message || "Signup successful");
         navigate("/");
       }
     } catch (err) {
       console.error("Signup error:", err);
-      showCenteredAlert("Network or server error. Check console.");
+      alert("Network or server error. Check console.");
     } finally {
       setLoading(false);
     }
@@ -113,7 +111,7 @@ export default function Signup() {
               />
             </div>
 
-            {/* <div className="form-group">
+            <div className="form-group">
               <label className="form-label">Role</label>
               <select
                 name="role"
@@ -124,10 +122,10 @@ export default function Signup() {
               >
                 <option value="">-- Select Role --</option>
                 <option value="normal">Normal User</option>
-                
-                
+                <option value="owner">Store Owner</option>
+                <option value="admin">Admin</option>
               </select>
-            </div> */}
+            </div>
 
             <div className="form-group">
               <label className="form-label">Password</label>
