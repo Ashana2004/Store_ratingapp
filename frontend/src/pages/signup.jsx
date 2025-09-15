@@ -122,8 +122,7 @@ export default function Signup() {
               >
                 <option value="">-- Select Role --</option>
                 <option value="normal">Normal User</option>
-                <option value="owner">Store Owner</option>
-                <option value="admin">Admin</option>
+                
               </select>
             </div>
 
